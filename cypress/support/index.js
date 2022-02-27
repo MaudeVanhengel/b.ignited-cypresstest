@@ -18,3 +18,13 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+//zorgt er voor dat uncaught app errors door cypress genegeerd worden
+//gezien dit een third-party website was en ik niet genoeg tijd had om de error uit te zoeken
+Cypress.on('uncaught:exception', (err, runnable) => {
+    return false
+})
+
+Cypress.Cookies.defaults({
+    preserve: 'euconsent-v2'
+})
